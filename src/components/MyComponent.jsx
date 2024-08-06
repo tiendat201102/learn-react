@@ -6,8 +6,13 @@ export default class MyComponent extends Component {
         name: "Dat",
         age: 22,
     }
-    handleClick() {
+    
+    handleClick = (event) => {
         console.log("click me");
+        console.log("My name is", this.state.name);
+        this.setState({
+            name: "Tien Dat"
+        });
     }
 
     handleOnMouseOver(event) {
@@ -19,8 +24,8 @@ export default class MyComponent extends Component {
     return (
       <div>
         my name is {this.state.name}
-        <button onClick={this.handleClick}>Click me</button>
         <button onMouseOver={this.handleOnMouseOver}>Hover me</button>
+        <button onClick={this.handleClick}>Click me</button>
       </div>
     )
   }

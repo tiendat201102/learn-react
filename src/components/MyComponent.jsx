@@ -20,16 +20,30 @@ export default class MyComponent extends Component {
   handleAddNewUser = (obj) => {
     console.log(obj);
     this.setState({
-      listUsers: [obj, ...this.state.listUsers]
-    })
-    
+      listUsers: [obj, ...this.state.listUsers],
+    });
+  };
+
+  handleDeleteUser = (userID) => {
+    // alert("hello delete");
+    let listUserClone = this.state.listUsers;
+    listUserClone = listUserClone.filter((item) => item.id !== userID);
+    this.setState({
+      listUsers: listUserClone,
+    });
   };
   render() {
     return (
-      <div>
-        <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
-        <DisplayInfor listUsers={this.state.listUsers} />
-      </div>
+      <>
+        <div className="a">
+          <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
+          <DisplayInfor
+            listUsers={this.state.listUsers}
+            handleDeleteUser={this.handleDeleteUser}
+          />
+        </div>
+        <div className="b"></div>
+      </>
     );
   }
 }

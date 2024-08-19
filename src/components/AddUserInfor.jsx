@@ -30,6 +30,7 @@ export default class AddUserInfor extends Component {
     // console.log(this.state);
 
     this.props.handleAddNewUser({
+      id: Math.round(Math.random()*100)+12,
       name: this.state.name,
       age: this.state.age
     });

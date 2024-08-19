@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserInfor from "./UserInfor";
+import AddUserInfor from "./AddUserInfor";
 import DisplayInfor from "./DisplayInfor";
 
 export default class MyComponent extends Component {
@@ -14,15 +14,21 @@ export default class MyComponent extends Component {
       { id: 7, name: "Dang Quoc", age: "31" },
       { id: 8, name: "Bui Thuy", age: "29" },
       { id: 9, name: "Hoang Anh", age: "26" },
-      { id: 10, name: "Duong Mai", age: "34" }
-    ]
-  }
-
+      { id: 10, name: "Duong Mai", age: "34" },
+    ],
+  };
+  handleAddNewUser = (obj) => {
+    console.log(obj);
+    this.setState({
+      listUsers: [obj, ...this.state.listUsers]
+    })
+    
+  };
   render() {
     return (
       <div>
-        <UserInfor />
-        <DisplayInfor listUsers={this.state.listUsers}/>
+        <AddUserInfor handleAddNewUser={this.handleAddNewUser} />
+        <DisplayInfor listUsers={this.state.listUsers} />
       </div>
     );
   }

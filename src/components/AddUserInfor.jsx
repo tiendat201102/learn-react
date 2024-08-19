@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-export default class UserInfor extends Component {
+export default class AddUserInfor extends Component {
   state = {
-    name: "Dat",
-    age: 22,
+    name: "",
+    age: ""
   };
 
   handleClick = (event) => {
@@ -27,7 +27,12 @@ export default class UserInfor extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
+
+    this.props.handleAddNewUser({
+      name: this.state.name,
+      age: this.state.age
+    });
   };
   render() {
     return (

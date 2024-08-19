@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import MyComponent from "./components/MyComponent";
     
 import React, { Component } from 'react'
+import RiceLandingPage from "./components/Giaodien";
 
 class App extends Component {
   render() {
     return (
       <div>
         <MyComponent />
+        {/* <RiceLandingPage/> */}
       </div>
     )
   }

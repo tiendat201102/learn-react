@@ -26,7 +26,7 @@ export default class DisplayInfor extends Component {
           </span>
         </div>
         {this.state.isShowListUsers && (
-          <div>
+          <>
             {listUsers.map((user) => {
               return (
                 <div key={user.id} className={user.age > 30 ? "red" : "blue"}>
@@ -36,7 +36,7 @@ export default class DisplayInfor extends Component {
                 </div>
               );
             })}
-          </div>
+          </>
         )}
       </div>
     );

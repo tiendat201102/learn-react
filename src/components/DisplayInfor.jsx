@@ -3,15 +3,36 @@ import "./DisplayInfor.scss";
 import logo from "./../logo.svg";
 
 export default class DisplayInfor extends Component {
-  state = {
-    isShowListUsers: true,
-  };
+  constructor(props) {
+    console.log("Call me constructor");
+
+    super(props);
+    this.state = {
+      isShowListUsers: true,
+    };
+  }
+
   handleShowHide = () => {
     this.setState({
       isShowListUsers: !this.state.isShowListUsers,
     });
   };
+
+  componentDidMount() {
+    console.log("call me component did mount");
+    setTimeout(() => {
+      document.title = "Tien Dat";
+    }, 3000);
+  }
+
+  componentDidUpdate() {
+    console.log("call me component did update");
+
+  }
+
   render() {
+    console.log("call me render");
+
     const { listUsers } = this.props;
     // console.table(listUsers);
 
@@ -35,7 +56,11 @@ export default class DisplayInfor extends Component {
                     <div>My age is {user.age} </div>
                   </div>
                   <div>
-                    <button onClick={() => this.props.handleDeleteUser(user.id)}>Delete</button>
+                    <button
+                      onClick={() => this.props.handleDeleteUser(user.id)}
+                    >
+                      Delete
+                    </button>
                   </div>
                   <hr />
                 </div>

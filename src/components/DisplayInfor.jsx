@@ -2,51 +2,47 @@ import React, { Component } from "react";
 import "./DisplayInfor.scss";
 import logo from "./../logo.svg";
 
-export default class DisplayInfor extends Component {
-  constructor(props) {
-    console.log("Call me constructor");
+// export default class DisplayInfor extends Component {
+//   render() {
+//     console.log("call me render");
 
-    super(props);
-    this.state = {
-      isShowListUsers: true,
-    };
-  }
+//     const { listUsers } = this.props;
+//     // console.table(listUsers);
 
-  handleShowHide = () => {
-    this.setState({
-      isShowListUsers: !this.state.isShowListUsers,
-    });
-  };
+//     return (
+//       <div className="display-infor-container">
+//         {true && (
+//           <>
+//             {listUsers.map((user, index) => {
+//               return (
+//                 <div key={user.id} className={user.age > 30 ? "red" : "blue"}>
+//                   <div>
+//                     <div>My name is {user.name} </div>
+//                     <div>My age is {user.age} </div>
+//                   </div>
+//                   <div>
+//                     <button
+//                       onClick={() => this.props.handleDeleteUser(user.id)}
+//                     >
+//                       Delete
+//                     </button>
+//                   </div>
+//                   <hr />
+//                 </div>
+//               );
+//             })}
+//           </>
+//         )}
+//       </div>
+//     );
+//   }
+// }
 
-  componentDidMount() {
-    console.log("call me component did mount");
-    setTimeout(() => {
-      document.title = "Tien Dat";
-    }, 3000);
-  }
-
-  componentDidUpdate() {
-    console.log("call me component did update");
-
-  }
-
-  render() {
-    console.log("call me render");
-
-    const { listUsers } = this.props;
-    // console.table(listUsers);
-
+export default function DisplayInfor(props) {
+  const { listUsers } = props;
     return (
       <div className="display-infor-container">
-        {/* <img src={logo} alt="" /> */}
-        <div>
-          <span onClick={() => this.handleShowHide()}>
-            {this.state.isShowListUsers === true
-              ? "Hide list users:"
-              : "Show list users:"}
-          </span>
-        </div>
-        {this.state.isShowListUsers && (
+        {true && (
           <>
             {listUsers.map((user, index) => {
               return (
@@ -57,7 +53,7 @@ export default class DisplayInfor extends Component {
                   </div>
                   <div>
                     <button
-                      onClick={() => this.props.handleDeleteUser(user.id)}
+                      onClick={() => props.handleDeleteUser(user.id)}
                     >
                       Delete
                     </button>
@@ -71,4 +67,5 @@ export default class DisplayInfor extends Component {
       </div>
     );
   }
-}
+
+

@@ -4,7 +4,7 @@ import Header from '../Header/Header'
 export default function Admin(props) {
   return (
     <div>
-        <Header/>
+        {/* <Header/> */}
       Admin component
     </div>
   )

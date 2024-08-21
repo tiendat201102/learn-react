@@ -4,7 +4,7 @@ import Header from '../Header/Header'
 export default function User(props) {
   return (
     <div>
-        <Header/>
+        {/* <Header/> */}
       User component
     </div>
   )

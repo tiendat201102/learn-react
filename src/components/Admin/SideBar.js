@@ -22,6 +22,7 @@ import { MdDashboard } from "react-icons/md";
 
 
 import sidebarBg from "../../assests/bg2.jpg";
+import { Link } from "react-router-dom";
 
 export default function SideBar({
   image,
@@ -57,10 +58,11 @@ export default function SideBar({
       <SidebarContent>
         <Menu iconShape="circle">
           <MenuItem
-            icon={<FaTachometerAlt />}
+            icon={<MdDashboard />}
             // suffix={<span className="badge red">NEW</span>}
           >
             Dashboard
+            <Link to={"/admins"}/>
           </MenuItem>
           {/* <MenuItem icon={<FaGem />}>components</MenuItem> */}
         </Menu>
@@ -69,7 +71,10 @@ export default function SideBar({
             icon={<FaGem />}
             title="Features"
           >
-            <MenuItem>Quản lý user</MenuItem>
+            <MenuItem>
+            Quản lý user
+            <Link to={"/admins/manage-users"}/>
+            </MenuItem>
             <MenuItem>Quản lý bài quiz</MenuItem>
             <MenuItem>QUản lý câu hỏi</MenuItem>
           </SubMenu>

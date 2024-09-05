@@ -17,6 +17,8 @@ import {
   FaRegLaughWink,
   FaHeart,
 } from "react-icons/fa";
+import { DiReact } from "react-icons/di";
+import { MdDashboard } from "react-icons/md";
 
 
 import sidebarBg from "../../assests/bg2.jpg";
@@ -48,6 +50,7 @@ export default function SideBar({
             whiteSpace: "nowrap",
           }}
         >
+          <DiReact size={"3em"} color="00bfff"/>
           Tien Dat
         </div>
       </SidebarHeader>
@@ -55,21 +58,20 @@ export default function SideBar({
         <Menu iconShape="circle">
           <MenuItem
             icon={<FaTachometerAlt />}
-            suffix={<span className="badge red">NEW</span>}
+            // suffix={<span className="badge red">NEW</span>}
           >
-            dashboard
+            Dashboard
           </MenuItem>
-          <MenuItem icon={<FaGem />}>components</MenuItem>
+          {/* <MenuItem icon={<FaGem />}>components</MenuItem> */}
         </Menu>
         <Menu iconShape="circle">
           <SubMenu
-            title="Submenu"
-            suffix={<span className="badge yellow">3</span>}
-            icon={<FaRegLaughWink />}
+            icon={<FaGem />}
+            title="Features"
           >
-            <MenuItem>1</MenuItem>
-            <MenuItem>2</MenuItem>
-            <MenuItem>3</MenuItem>
+            <MenuItem>Quản lý user</MenuItem>
+            <MenuItem>Quản lý bài quiz</MenuItem>
+            <MenuItem>QUản lý câu hỏi</MenuItem>
           </SubMenu>
         </Menu>
       </SidebarContent>
@@ -81,7 +83,7 @@ export default function SideBar({
           }}
         >
           <a
-            href="https://github.com/azouaoui-med/react-pro-sidebar"
+            href="https://github.com/tiendat201102"
             target="_blank"
             className="sidebar-btn"
             rel="noopener noreferrer"
@@ -94,7 +96,7 @@ export default function SideBar({
                 overflow: "hidden",
               }}
             >
-              viewSource
+              Tiến Đạt
             </span>
           </a>
         </div>

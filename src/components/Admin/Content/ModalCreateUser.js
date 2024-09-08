@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import { FcPlus } from "react-icons/fc";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { postCreateNewUser } from "../../../services/apiService"
 
 
 const ModalCreateUser = (props) => {
@@ -49,7 +50,8 @@ const ModalCreateUser = (props) => {
   const handleSubmitUser = async() => {
     //validate
 
-    //call api
+    {
+      //call api
     // let data = {
     //   email: email,
     //   password: password,
@@ -57,6 +59,28 @@ const ModalCreateUser = (props) => {
     //   role: role,
     //   userImage: image,
     // };
+    
+
+    // const data = new FormData();
+    // data.append("email", email);
+    // data.append("password", password);
+    // data.append("username", username);
+    // data.append("role", role);
+    // data.append("userImage", image);
+
+    // let res = await postCreateNewUser(email, password, username, role, image);
+
+    // console.log(res);
+    // if(res.data && res.data.EC === 0) {
+    //   toast.success(res.data.EM);
+    //   handleClose();
+    // }
+
+    // if(res.data && res.data.EC !== 0) {
+    //   toast.error(res.data.EM);
+    // }
+    }
+
     const isValidateEmail = validateEmail(email);
 
     if(!isValidateEmail) {
@@ -69,23 +93,15 @@ const ModalCreateUser = (props) => {
       return;
     }
 
-    const data = new FormData();
-    data.append("email", email);
-    data.append("password", password);
-    data.append("username", username);
-    data.append("role", role);
-    data.append("userImage", image);
+    let data = await postCreateNewUser(email, password, username, role, image);
 
-    let res = await axios.post("http://localhost:8081/api/v1/participant", data);
-
-    console.log(res);
-    if(res.data && res.data.EC === 0) {
-      toast.success(res.data.EM);
+    if(data && data.EC === 0) {
+      toast.success(data.EM);
       handleClose();
     }
 
-    if(res.data && res.data.EC !== 0) {
-      toast.error(res.data.EM);
+    if(data && data.EC !== 0) {
+      toast.error(data.EM);
     }
   };
 

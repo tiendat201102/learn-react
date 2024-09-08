@@ -82,7 +82,6 @@ const ModalCreateUser = (props) => {
     }
 
     const isValidateEmail = validateEmail(email);
-
     if(!isValidateEmail) {
       toast.error("invalid email");
       return;
@@ -94,10 +93,10 @@ const ModalCreateUser = (props) => {
     }
 
     let data = await postCreateNewUser(email, password, username, role, image);
-
     if(data && data.EC === 0) {
       toast.success(data.EM);
       handleClose();
+      await props.fetchListUser();
     }
 
     if(data && data.EC !== 0) {

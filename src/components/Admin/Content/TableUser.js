@@ -28,9 +28,10 @@ export default function TableUser(props) {
                   <td>{item.email}</td>
                   <td>{item.role}</td>
                   <td>
-                    <tr className="btn btn-secondary">View</tr>
-                    <tr className="btn btn-warning mx-3">Update</tr>
-                    <tr className="btn btn-danger">Delete</tr>
+                    <button className="btn btn-secondary">View</button>
+                    <button className="btn btn-warning mx-3"
+                    onClick={() => props.handleClickBtnUpdate(item)}>Update</button>
+                    <button className="btn btn-danger">Delete</button>
                   </td>
                 </tr>
               );

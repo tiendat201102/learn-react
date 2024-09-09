@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-
-
 export default function TableUser(props) {
-  const {listUsers} = props;
+  const { listUsers } = props;
 
   return (
     <>
@@ -29,8 +27,12 @@ export default function TableUser(props) {
                   <td>{item.role}</td>
                   <td>
                     <button className="btn btn-secondary">View</button>
-                    <button className="btn btn-warning mx-3"
-                    onClick={() => props.handleClickBtnUpdate(item)}>Update</button>
+                    <button
+                      className="btn btn-warning mx-3"
+                      onClick={() => props.handleClickBtnUpdate(item)}
+                    >
+                      Update
+                    </button>
                     <button className="btn btn-danger">Delete</button>
                   </td>
                 </tr>

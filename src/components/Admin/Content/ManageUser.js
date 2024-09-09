@@ -10,7 +10,7 @@ import ModalUpdateUser from "./ModalUpdateUser";
 export default function ManageUser(props) {
   const [showModalCreateUser, setShowModalCreateUser] = useState(false);
   const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
-  const [dataUpdate, setDataUpdate] = useState("")
+  const [dataUpdate, setDataUpdate] = useState("");
 
   const [listUsers, setListUsers] = useState([]);
 
@@ -61,6 +61,7 @@ export default function ManageUser(props) {
           show={showModalUpdateUser}
           setShow={setShowModalUpdateUser}
           dataUpdate={dataUpdate}
+          fetchListUser={fetchListUser}
         />
       </div>
     </div>

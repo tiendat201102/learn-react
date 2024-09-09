@@ -15,8 +15,10 @@ instance.interceptors.request.use(function (config) {
 
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {
-    console.log("interceptor");
-    console.log(">>> success", response);
+    //Nao can thi bat check log
+
+    // console.log("interceptor");
+    // console.log(">>> success", response);
     
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data

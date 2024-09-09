@@ -18,6 +18,7 @@ const ModalUpdateUser = (props) => {
     setUsername("");
     setRole("USER");
     setImage("");
+    props.resetUpdateDate();
   };
   const handleShow = () => setShow(true);
 

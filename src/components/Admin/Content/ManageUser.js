@@ -12,7 +12,7 @@ import TableUserPaginate from "./TableUserPaginate";
 export default function ManageUser(props) {
   const LIMIT_USER = 2; //so phan tu tren 1 trang
   const [pageCount, setPageCount] = useState(0);
-
+  const [currentPage, setCurrentPage] = useState(1);
 
   const [showModalCreateUser, setShowModalCreateUser] = useState(false);
   const [showModalUpdateUser, setShowModalUpdateUser] = useState(false);
@@ -40,9 +40,9 @@ export default function ManageUser(props) {
     let res = await getUserWithPaginate(page, LIMIT_USER);
     if (res.EC === 0) {
       console.log("res.DT", res.DT.users);
-      
+
       setListUsers(res.DT.users);
-      setPageCount(res.DT.totalPages)
+      setPageCount(res.DT.totalPages);
     }
   };
 
@@ -88,12 +88,17 @@ export default function ManageUser(props) {
             handleClickBtnDelete={handleClickBtnDelete}
             fetchListUserWithPaginate={fetchListUserWithPaginate}
             pageCount={pageCount}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
         </div>
         <ModalCreateUser
           show={showModalCreateUser}
           setShow={setShowModalCreateUser}
           fetchListUser={fetchListUser}
+          fetchListUserWithPaginate={fetchListUserWithPaginate}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
 
         <ModalUpdateUser
@@ -102,6 +107,9 @@ export default function ManageUser(props) {
           dataUpdate={dataUpdate}
           fetchListUser={fetchListUser}
           resetUpdateDate={resetUpdateDate}
+          fetchListUserWithPaginate={fetchListUserWithPaginate}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
 
         <ModalDeleteUser
@@ -109,6 +117,9 @@ export default function ManageUser(props) {
           setShow={setShowModalDeleteUser}
           dataDelete={dataDelete}
           fetchListUser={fetchListUser}
+          fetchListUserWithPaginate={fetchListUserWithPaginate}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
       </div>
     </div>

@@ -10,6 +10,7 @@ import HomePage from "./components/Home/HomePage";
 import ManageUser from "./components/Admin/Content/ManageUser";
 import DashBoard from "./components/Admin/Content/DashBoard";
 import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 export default function Layout() {
   return (
     <>
@@ -25,6 +26,7 @@ export default function Layout() {
         </Route>
 
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
 
       <ToastContainer

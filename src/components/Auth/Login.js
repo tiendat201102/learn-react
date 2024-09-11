@@ -32,7 +32,7 @@ export default function Login() {
     <div className="login-container">
       <div className="header">
         <span>Don't have an account yet? </span>
-        <button>Sign up</button>
+        <button onClick={() => navigate('/register')}>Sign up</button>
       </div>
 
       <div className="title col-4 mx-auto">Hello</div>

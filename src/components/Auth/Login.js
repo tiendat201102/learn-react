@@ -1,17 +1,39 @@
 import React from "react";
 import "./Login.scss";
 import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { postLogin } from "../../services/apiService";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    alert("login");
+  const navigate = useNavigate()
+
+  const handleLogin = async () => {
+    //validate
+
+    //submit api
+    let data = await postLogin(email, password);
+    console.log("data: ", data, +data.EC !== 0, data.EC);
+    
+    if (data && +data.EC === 0) {
+        toast.success(data.EM);
+        navigate("/")
+      }
+  
+      if (data && +data.EC !== 0) {
+        toast.error(data.EM);
+      }
+    
   };
   return (
     <div className="login-container">
-      <div className="header">Don't have an account yet?</div>
+      <div className="header">
+        <span>Don't have an account yet? </span>
+        <button>Sign up</button>
+      </div>
 
       <div className="title col-4 mx-auto">Hello</div>
 
@@ -45,6 +67,12 @@ export default function Login() {
             Login
           </button>
         </div>
+
+        <div className="text-center" onClick={()=> {navigate("/")}}>
+            <span className="back"> &#60;&#60; Go to Home Page  </span>
+        </div>
+
+
       </div>
     </div>
   );

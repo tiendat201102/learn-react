@@ -1,11 +1,22 @@
 import axios from "axios";
-
+import nProgress from "nprogress";
+nProgress.start();
+nProgress.done();
 const instance = axios.create({
   baseURL: "http://localhost:8081/",
 });
 
+nProgress.configure({
+  showSpinner: false,
+  // easing: "ease",
+  // speed: 500,
+  trickleSpeed: 100,
+
+})
+
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
+  nProgress.start();
     // Do something before request is sent
     return config;
   }, function (error) {
@@ -15,6 +26,7 @@ instance.interceptors.request.use(function (config) {
 
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {
+  nProgress.done();
     //Nao can thi bat check log
 
     // console.log("interceptor");
